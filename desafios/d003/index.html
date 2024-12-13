@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Antes e Depois</title>
+    <style>
+        body{
+            background-color: rgb(169, 184, 236);
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        div{
+            background-color: grey;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Antes e Depois</h1>
+    <div id ='desafio'>Inserir número</div>
+
+    <script>
+        var a = window.document.getElementById('desafio')
+        a.addEventListener('click',clicar)
+
+        function clicar() {
+            var num = Number(window.prompt('Digite um número qualquer'))
+            var a = Number(num - 1)
+            var s = Number(num + 1)
+            window.confirm(`Antes de ${num},temos o número ${a}.\nDepois de ${num}, temos o número ${s}.`)
+        }
+    </script>
+</body>
+</html>

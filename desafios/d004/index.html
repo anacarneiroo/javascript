@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Calcula Troco</title>
+    <style>
+        body{
+            background-color: rgb(169, 184, 236);
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        div{
+            background-color: grey;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando o Troco</h1>
+    <div id ='desafio'>Comprar produto</div>
+
+    <script>
+        var a = window.document.getElementById('desafio')
+        a.addEventListener('click',clicar)
+
+        function clicar() {
+            var produto = window.prompt('Que produto você está comprando?')
+            var preco = Number(window.prompt(`Quanto custa ${produto} que você está comprando?`))
+            var dinheiro = Number(window.prompt(`Quanto foi o valor que você deu para pagar ${produto}?`))
+            var troco = Number(dinheiro - preco)
+            window.confirm(`Você comprou ${produto} que custou $R${preco}.\nDeu ${dinheiro} em dinheiro e vai receber ${troco} de troco.\nVolte Sempre!`)
+        }
+    </script>
+</body>
+</html>
