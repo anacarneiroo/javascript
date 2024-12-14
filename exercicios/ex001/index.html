@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            color: white;
+            background-color: #000000;
+        }
+
+        footer{
+            margin-top: 10px;
+            font-style: italic;
+            font-weight: lighter;
+        }
+
+        div{
+            position: relative;
+            height: 600px;
+            max-width: 800px;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.671);
+            background-color: white;
+        }
+
+        img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        p{
+            padding-top: 30px ;
+            font-size: 18px;
+            color: black;
+        }
+    </style>
+</head>
+<body id="pagina">
+    <h1>Hora do Dia</h1>
+    <div id ="caixa"><p id="texto"></p></div>
+    <footer>&#169;CursoemVideo</footer>
+
+    <script>
+        var dataAtual = new Date();
+        var hora = dataAtual.getHours();
+
+        var pagina = window.document.getElementById('pagina');
+        var caixa = document.getElementById('caixa');
+        var texto = window.document.getElementById('texto');
+        
+        var img = document.createElement('img');
+
+        texto.innerHTML = `Agora são ${hora} horas.`
+        caixa.appendChild(img);
+        
+
+        if (hora > 17 || hora < 4){
+            img.src = 'imagens/noite.png';
+            pagina.style.background = '#012B43'
+        }
+
+        else if(hora < 17 && hora > 10){
+            img.src = 'imagens/tarde.png';
+            pagina.style.background = '#3F7BB2'
+        }
+
+        else if(hora <= 10 && hora > 6){
+            img.src = 'imagens/manha.png';
+            pagina.style.background = '#8E8815'
+        }
+        else if(hora <= 6 && hora > 3){
+            img.src = 'imagens/madrugada.png';
+            pagina.style.background = '#9B8789'
+        }
+
+        else{
+            img.src = 'imagens/finaltarde.png';
+            pagina.style.background = '#FE8245'
+        }
+          
+    </script>
+</body>
+</html>
