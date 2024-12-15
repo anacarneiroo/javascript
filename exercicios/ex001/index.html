@@ -20,7 +20,7 @@
             font-weight: lighter;
         }
 
-        div{
+        div#caixa{
             position: relative;
             height: 500px;
             max-width: 800px;
@@ -55,10 +55,10 @@
         var hora = dataAtual.getHours();
 
         var pagina = window.document.getElementById('pagina');
-        var caixa = document.getElementById('caixa');
+        var caixa = window.document.getElementById('caixa');
         var texto = window.document.getElementById('texto');
 
-        var img = document.createElement('img');
+        var img = window.document.createElement('img');
 
         texto.innerHTML = `Agora são ${hora} horas.`
         caixa.appendChild(img);

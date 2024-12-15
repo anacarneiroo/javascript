@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: white;
+            background-color:#FF98E7;
+            text-align: center;
+        }
+
+        h1{
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.482);
+        }
+
+        div#caixa{
+            max-width: 600px;
+            margin: auto;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 3px rgba(106, 106, 106, 0.558);
+            color: black;
+            background-color: white;
+        }
+
+        div#caixa > p{
+            text-align: left;
+        }
+
+        footer{
+            margin-top: 10px;
+            font-style: italic;
+            font-weight: lighter;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Idade</h1>
+    <div id="caixa">
+        <p>Ano de Nascimento: <input type="number" id="ano"></p>
+
+        <p>Sexo: 
+        <input type="radio" value="feminino" name="op">Feminino
+        <input type="radio" value="masculino" name="op">Masculino</p>
+
+        <p><button onclick="verificar()">Verificar</button></p>
+        <p id="texto">Preencha os dados acima para ver o resultado!</p>
+        <img src="" alt="" id="img">
+    </div>
+    <footer>&#169;CursoemVideo</footer>
+
+    <script>
+        var date = new Date()
+        var anoAtual = date.getFullYear()
+        var caixa = window.document.querySelector('div#caixa')
+        
+
+        function verificar() {
+            var ano = window.document.getElementById('ano').value
+            var idade = anoAtual - ano
+            var sexo = window.document.querySelector('input[name="op"]:checked').value
+            var texto = window.document.querySelector('p#texto');
+            var img = window.document.getElementById('img')
+
+            if ( !ano || (ano > anoAtual)){
+                window.alert('Verifique os dados e tente novamente!')
+            }
+            else if(ano < 0){
+                window.alert('Não existe ano negativo.Tente Novamente!');
+            }
+            else if (sexo == "feminino"){
+                texto.innerText = `Detectamos Mulher com ${idade} anos.`;
+                texto.style.textAlign = 'center'
+
+                if (idade === 0){
+                    img.src = 'imagens/mbebe.png'
+                }
+                else if(idade > 0 && idade < 6){
+                    img.src = 'imagens/mpequena.png'
+                }
+                else if(idade > 5 && idade < 12){
+                    img.src = 'imagens/mcrianca.png'
+                }
+                else if(idade > 11 && idade < 18){
+                    img.src = 'imagens/madolescente.png'
+                }
+                else if(idade > 17 && idade < 30){
+                    img.src = 'imagens/mjovem.png'
+                }
+                else if(idade > 29 && idade < 50){
+                    img.src = 'imagens/madulta.png'
+                }
+                else{
+                    img.src = 'imagens/midosa.png'
+                }
+            }
+            else{
+                texto.innerHTML = `Detectamos Homem com ${idade} anos`;
+                if (idade == 0){
+                    img.src = 'imagens/hbebe.png'
+                }
+                else if(idade > 0 && idade < 6){
+                    img.src = 'imagens/hpequeno.png'
+                }
+                else if(idade > 5 && idade < 12){
+                    img.src = 'imagens/hrianca.png'
+                }
+                else if(idade > 13 && idade < 18){
+                    img.src = 'imagens/hadolescente.png'
+                }
+                else if(idade > 17 && idade < 30){
+                    img.src = 'imagens/hjovem.png'
+                }
+                else if(idade > 29 && idade < 50){
+                    img.src = 'imagens/hadulto.png'
+                }
+                else{
+                    img.src = 'imagens/hidosa.png'
+                }
+            }
+        }
+    </script>
+</body>
+</html>
