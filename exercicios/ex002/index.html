@@ -10,7 +10,7 @@
             margin-left: 20px;
             margin-right: 20px;
             color: white;
-            background-color:#FF98E7;
+            background-color:#c8b7ff;
             text-align: center;
         }
 
@@ -23,7 +23,7 @@
             margin: auto;
             padding: 10px;
             border-radius: 20px;
-            box-shadow: 2px 2px 3px rgba(106, 106, 106, 0.558);
+            box-shadow: 2px 2px 3px rgba(69, 69, 69, 0.684);
             color: black;
             background-color: white;
         }
@@ -65,13 +65,16 @@
             var idade = anoAtual - ano
             var sexo = window.document.querySelector('input[name="op"]:checked').value
             var texto = window.document.querySelector('p#texto');
-            var img = window.document.getElementById('img')
+            var img = window.document.getElementById('img');
 
-            if ( !ano || (ano > anoAtual)){
-                window.alert('Verifique os dados e tente novamente!')
+            if (ano > anoAtual){
+                window.alert('Verifique os dados e tente novamente!');
             }
             else if(ano < 0){
                 window.alert('Não existe ano negativo.Tente Novamente!');
+            }
+            else if(!ano){
+                window.alert('Por favor,insira o Ano de Nascimento!')
             }
             else if (sexo == "feminino"){
                 texto.innerText = `Detectamos Mulher com ${idade} anos.`;
@@ -100,7 +103,9 @@
                 }
             }
             else{
-                texto.innerHTML = `Detectamos Homem com ${idade} anos`;
+                texto.innerText = `Detectamos Homem com ${idade} anos.`;
+                texto.style.textAlign = 'center';
+
                 if (idade == 0){
                     img.src = 'imagens/hbebe.png'
                 }
@@ -108,9 +113,9 @@
                     img.src = 'imagens/hpequeno.png'
                 }
                 else if(idade > 5 && idade < 12){
-                    img.src = 'imagens/hrianca.png'
+                    img.src = 'imagens/hcrianca.png'
                 }
-                else if(idade > 13 && idade < 18){
+                else if(idade > 11 && idade < 18){
                     img.src = 'imagens/hadolescente.png'
                 }
                 else if(idade > 17 && idade < 30){
@@ -120,7 +125,7 @@
                     img.src = 'imagens/hadulto.png'
                 }
                 else{
-                    img.src = 'imagens/hidosa.png'
+                    img.src = 'imagens/hidoso.png'
                 }
             }
         }
