@@ -15,6 +15,7 @@ function contar() {
             window.alert('Passo inválido! Considerando PASSO 1.');
             passo = 1
         }
+        
         if(inicio == fim){
             retorno.innerHTML = 'Não é possível contar!';
         }
