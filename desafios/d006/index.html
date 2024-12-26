@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conversor de temperaturas</title>
+    <style>
+        div{
+            background-color: rgb(199, 198, 198);
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
-<body>
-    
+<body id="caixa">
+    <h1>Conversor de temperaturas</h1>
+
+    <div id="botão">Converter</div>
+
+    <script>
+        var b = document.getElementById('botão')
+        b.addEventListener('click',clicar);
+
+        function clicar() {
+            var celsius = Number(window.prompt('Digite uma temperatura em *C (Celsius)'));
+
+            var caixa = document.getElementById('caixa');
+            var h2 = document.createElement('h2');
+            caixa.appendChild(h2);
+
+            h2.innerHTML = `A temperatua de ${celsius}ºC, corresponde a...`;
+
+            var f = celsius * 1.8 + 32
+            var k = celsius + 273
+
+            var p1 = document.createElement('p');
+            var p2 = document.createElement('p');
+            caixa.appendChild(p1);
+            caixa.appendChild(p2);
+
+            p1.innerHTML = `${f}ºF(Fahrenheit)`;
+            p2.innerHTML = `${k}ºK(Kelvin)`;
+        }
+    </script>
 </body>
 </html>
