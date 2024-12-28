@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+    <style>
+        div{
+            background-color: rgb(199, 198, 198);
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="caixa" onload="carregar()">
+
+    <script>
+
+        function carregar() {
+            var cot = Number(window.prompt('Antes de mais nada. Quanto está a cotação do dólar agora?'))
+
+            var body = document.getElementById('caixa');
+
+            var h1 = document.createElement('h1');
+            body.appendChild(h1)
+            h1.innerHTML = 'Conversor R$ -> US$'
+
+            var div = document.createElement('div')
+            body.appendChild(div)
+            div.id = 'botão'
+            div.innerHTML = 'Converter'
+
+            var p1 = document.createElement('p')
+            body.appendChild(p1)
+            p1.innerHTML = 'Clique no botão para iniciar.'
+            
+            var b = document.querySelector('div#botão')
+            b.addEventListener('click',clicar);
+
+            function clicar() {
+                var reais = Number(window.prompt('Quantos R$ você tem na carteira?'))
+
+                var total = Number(reais / cot)
+                var p2 = document.createElement('p')
+                body.appendChild(p2)
+
+                p2.innerHTML = `Você vai conseguir comprar ${total} dólares.`
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
